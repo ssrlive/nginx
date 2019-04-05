@@ -1,3 +1,6 @@
+#ifndef __NGX_AUTO_CONFIG_H__ 
+#define __NGX_AUTO_CONFIG_H__ 1
+
 #define NGX_CONFIGURE " --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=../pcre-8.42"
 
 #ifndef NGX_COMPILER
@@ -419,7 +422,7 @@
 
 
 #ifndef NGX_PREFIX
-#define NGX_PREFIX  "/usr/local/nginx/"
+#define NGX_PREFIX  "" // "/usr/local/nginx/"
 #endif
 
 
@@ -538,4 +541,8 @@
 #define NGX_MAIL_SSL 1
 #endif
 
+#if defined(NDEBUG)
 #pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"") // no console window
+#endif
+
+#endif /* __NGX_AUTO_CONFIG_H__ */
