@@ -1,6 +1,8 @@
 #include <ngx_config.h>
 #include <ngx_core.h>
 
+
+
 extern ngx_module_t  ngx_core_module;
 extern ngx_module_t  ngx_errlog_module;
 extern ngx_module_t  ngx_conf_module;
@@ -8,10 +10,9 @@ extern ngx_module_t  ngx_openssl_module;
 extern ngx_module_t  ngx_regex_module;
 extern ngx_module_t  ngx_events_module;
 extern ngx_module_t  ngx_event_core_module;
-extern ngx_module_t  ngx_epoll_module;
 extern ngx_module_t  ngx_iocp_module;
-extern ngx_module_t  ngx_poll_module;
 extern ngx_module_t  ngx_select_module;
+extern ngx_module_t  ngx_poll_module;
 extern ngx_module_t  ngx_http_module;
 extern ngx_module_t  ngx_http_core_module;
 extern ngx_module_t  ngx_http_log_module;
@@ -67,10 +68,9 @@ ngx_module_t *ngx_modules[] = {
     &ngx_regex_module,
     &ngx_events_module,
     &ngx_event_core_module,
-    // &ngx_epoll_module,
     &ngx_iocp_module,
-    &ngx_poll_module,
     &ngx_select_module,
+    &ngx_poll_module,
     &ngx_http_module,
     &ngx_http_core_module,
     &ngx_http_log_module,
@@ -128,10 +128,9 @@ char *ngx_module_names[] = {
     "ngx_regex_module",
     "ngx_events_module",
     "ngx_event_core_module",
-    //"ngx_epoll_module",
     "ngx_iocp_module",
-    "ngx_poll_module",
     "ngx_select_module",
+    "ngx_poll_module",
     "ngx_http_module",
     "ngx_http_core_module",
     "ngx_http_log_module",

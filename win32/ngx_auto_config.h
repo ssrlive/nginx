@@ -1,10 +1,55 @@
 #ifndef __NGX_AUTO_CONFIG_H__ 
 #define __NGX_AUTO_CONFIG_H__ 1
 
-#define NGX_CONFIGURE " --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=../pcre-8.42"
+#define NGX_CONFIGURE " --with-cc=cl --with-debug --prefix= --conf-path=conf/nginx.conf --pid-path=logs/nginx.pid --http-log-path=logs/access.log --error-log-path=logs/error.log --sbin-path=nginx.exe --http-client-body-temp-path=temp/client_body_temp --http-proxy-temp-path=temp/proxy_temp --http-fastcgi-temp-path=temp/fastcgi_temp --http-scgi-temp-path=temp/scgi_temp --http-uwsgi-temp-path=temp/uwsgi_temp --with-cc-opt=-DFD_SETSIZE=1024 --with-pcre=depends/pcre --with-zlib=depends/zlib --with-openssl=depends/openssl --with-openssl-opt=no-asm --with-http_ssl_module"
+
+#ifndef NGX_DEBUG
+#define NGX_DEBUG  1
+#endif
+
 
 #ifndef NGX_COMPILER
-#define NGX_COMPILER  "gcc 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04) "
+#define NGX_COMPILER  "cl "
+#endif
+
+
+#ifndef NGX_HAVE_INET6
+#define NGX_HAVE_INET6  1
+#endif
+
+
+#ifndef NGX_HAVE_IOCP
+#define NGX_HAVE_IOCP  1
+#endif
+
+
+#ifndef NGX_STREAM_SSL
+#define NGX_STREAM_SSL  1
+#endif
+
+
+#ifndef NGX_MAIL_SSL
+#define NGX_MAIL_SSL  1
+#endif
+
+
+#ifndef NGX_HTTP_V2
+#define NGX_HTTP_V2  1
+#endif
+
+
+#ifndef NGX_HTTP_HEADERS
+#define NGX_HTTP_HEADERS  1
+#endif
+
+
+#ifndef NGX_HTTP_REALIP
+#define NGX_HTTP_REALIP  1
+#endif
+
+
+#ifndef NGX_HTTP_DAV
+#define NGX_HTTP_DAV  1
 #endif
 
 
@@ -251,11 +296,6 @@
 //#endif
 
 
-#ifndef NGX_HAVE_INET6
-#define NGX_HAVE_INET6  1
-#endif
-
-
 #ifndef NGX_HAVE_PREAD
 #define NGX_HAVE_PREAD  1
 #endif
@@ -356,6 +396,16 @@
 #endif
 
 
+#ifndef NGX_HAVE_SELECT
+#define NGX_HAVE_SELECT  1
+#endif
+
+
+#ifndef NGX_HAVE_POLL
+#define NGX_HAVE_POLL  1
+#endif
+
+
 #ifndef NGX_HTTP_CACHE
 #define NGX_HTTP_CACHE  1
 #endif
@@ -386,11 +436,6 @@
 #endif
 
 
-#ifndef NGX_HTTP_X_FORWARDED_FOR
-#define NGX_HTTP_X_FORWARDED_FOR  1
-#endif
-
-
 #ifndef NGX_HTTP_UPSTREAM_ZONE
 #define NGX_HTTP_UPSTREAM_ZONE  1
 #endif
@@ -404,6 +449,11 @@
 #ifndef NGX_PCRE
 #define NGX_PCRE  1
 #endif
+
+
+//#ifndef PCRE_STATIC
+//#define PCRE_STATIC  1
+//#endif
 
 
 #ifndef NGX_OPENSSL
@@ -432,7 +482,7 @@
 
 
 #ifndef NGX_SBIN_PATH
-#define NGX_SBIN_PATH  "sbin/nginx"
+#define NGX_SBIN_PATH  "nginx.exe"
 #endif
 
 
@@ -503,42 +553,6 @@
 
 #ifndef NGX_GROUP
 #define NGX_GROUP  "nogroup"
-#endif
-
-#ifndef NGX_STREAM_SSL
-#define NGX_STREAM_SSL 1
-#endif
-
-#ifndef NGX_HAVE_IOCP
-#define NGX_HAVE_IOCP 1
-#endif
-
-#ifndef NGX_HTTP_V2
-#define NGX_HTTP_V2 1
-#endif
-
-#ifndef NGX_HTTP_HEADERS
-#define NGX_HTTP_HEADERS 1
-#endif
-
-#ifndef NGX_HTTP_DAV
-#define NGX_HTTP_DAV 1
-#endif
-
-#ifndef NGX_HAVE_POLL
-#define NGX_HAVE_POLL 1
-#endif
-
-//#ifndef NGX_TEST_BUILD_EVENTPORT
-//#define NGX_TEST_BUILD_EVENTPORT 1
-//#endif
-
-#ifndef NGX_HTTP_REALIP
-#define NGX_HTTP_REALIP 1
-#endif
-
-#ifndef NGX_MAIL_SSL
-#define NGX_MAIL_SSL 1
 #endif
 
 #if defined(NDEBUG)
